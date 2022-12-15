@@ -3,7 +3,7 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth import get_user_model
 from django.contrib.auth.forms import UserCreationForm as DUserCreationForm
 
-from app1.models import Vakancii
+from app1.models import Vakancii, Spheres
 
 User = get_user_model()
 
@@ -17,7 +17,13 @@ class ResumeForm(forms.Form):
 
 
 class AddVacanciiForm(forms.Form):
-    sphere = forms.CharField()
+    sphere = forms.ModelChoiceField(
+        queryset=Spheres.objects.all(),
+        empty_label=None,
+        to_field_name="id",
+        required=True,
+        widget=forms.Select()
+    )
     name_vacancii = forms.CharField()
     zadacha = forms.CharField()
     about_vacancii = forms.CharField()
