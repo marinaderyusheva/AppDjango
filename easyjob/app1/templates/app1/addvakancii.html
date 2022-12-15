@@ -40,7 +40,7 @@
            <div class="my_workspce">
 
             <h2>Добавить вакансию</h2>
-             <form action="{% url 'addvakancii' %}" method="post">
+             <form action="{% url 'addvc' %}" method="post">
                  {% csrf_token %}
                  <div class="form-error">{{ form.non_field_errors }}</div>
 
@@ -49,7 +49,7 @@
                  <div class="form-error">{{ f.errors }}</div>
                  {% endfor %}
 
-                 <button class="btn" id="addvakancii" ><b>Создать</b></button>
+                 <button class="btn" id="addvacancii" ><b>Создать</b></button>
              </form>
 
 

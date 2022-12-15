@@ -12,8 +12,9 @@ urlpatterns = [
     path('registr/', registr, name='registr'),
     path('addresume',addresume, name='addresume'),
     path('addvacancii',addvacancii, name='addvacancii'),
+    path('addvc', vakancii, name='addvc'),
     #path('registr/', RegistrUser.as_view(), name='registr'),
     #path('login/', login, name='login'),
-    #path('vakancii/<int:vakancii_id>/', addvacancii, name='vakancii_id'),
-    path('sphere/<int:sphere_id>/', show_sphere, name='sphere_id'),
+    # path('vakancii/<int:vakancii_id>/', addvacancii, name='vakancii_id'),
+    path('vakancii/<int:sphere_id>/', show_sphere, name='sphere_id'),
 ]
