@@ -47,17 +47,13 @@
                 </button>
                 <div class="dropdown-content">
                     {% for sp in bd_spheres %}
-                        {% if sp.pk == sphere_selected %}
-                             {{sp.name_sphere}}
-                        {% else %}
-                            <a href="#">{{sp.name_sphere}}</a>
-                        {% endif %}
+                        <a href="/vakancii/{{ sp.id }}">{{ sp.name_sphere }}</a>
                     {% endfor %}
                 </div>
             </div>
         </div>
         <div class="knopki_right"><a class="btn" href="{% url 'addvacancii' %}">Добавить вакансию</a></div>
-    </div
+    </div>
 </div>
 
 
