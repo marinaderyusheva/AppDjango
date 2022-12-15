@@ -1,8 +1,7 @@
-\
 from django.http import HttpResponse, HttpResponseNotFound, Http404
 from django.shortcuts import render, redirect
 from django.urls import reverse_lazy
-from django.views.generic import CreateView
+from django.views.generic import CreateView, View
 
 from .models import *
 from .forms import *
@@ -59,7 +58,7 @@ def contact(request):
 
 # Регистрация/вход
 def registr(request):
-    return render(request, 'app1/registr.html', {'title': 'Вход'})
+    return render(request, 'app1/register.html', {'title': 'Вход'})
 
 
 # функция показа информации о вакансии
@@ -117,6 +116,32 @@ class Add_vs(CreateView):
 # функция ошибки 404
 def pageNotFound(request, exception):
     return HttpResponseNotFound('<h1>Упс, что-то пошло не так</h1><p>Попробуйте снова</p>')
+
+
+class RegisterView(View):
+    template_name = 'app1/registration/register.html'
+
+    def get(self, request):
+        context = {
+            'form': UserCreationForm,
+        }
+        return render(request, self.template_name, context)
+
+    def post(self, request):
+        form = UserCreationForm(request.POST)
+
+        if form.is_valid():
+            form.save()
+            email = form.cleaned_data.get('email')
+            password = form.cleaned_data.get('password1')
+            user = authenticate(email=email, password=password)
+            send_email_for_verify(request, user)
+            return HttpResponseRedirect('/confirm_email/')
+        context = {
+            'form': form
+        }
+        return render(request, self.template_name, context)
+
 # класс представления Регистрации
 # class RegistrUser(DataMixin, CreateView):
 # стандартная форма джанго для регистрации пользователей
