@@ -1,0 +1,31 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <!--подключаем-->
+    <head>
+        <meta charset="UTF-8">
+        <!--css-->
+        <link type="text/css" href="{% static 'app1/css/style.css' %}" rel="stylesheet" />
+        <!--шрифт-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+        <title>Регистрация</title>
+    </head>
+    <body>
+        <header class="header">
+            <div class="header_inner">
+                <div class="logo">EASYJOB</div>
+                <!--Ссылки-->
+                <nav class="nav">
+                    <a class="nav_link" href="{% url 'index' %}">О сервисе</a>
+                    <a class="nav_link" href="{% url 'vakancii' %}">Вакансии</a>
+                    <a class="nav_link" href="{% url 'freelancer' %}">Фрилансеры</a>
+                    <a class="nav_link" href="{% url 'contact' %}">Контакты</a>
+                    <a class="nav_link active" href="#">Регистрация</a>
+                    <a class="nav_link" href="#">Вход</a>
+                </nav>
+            </div>
+        </header>
+    </body>
+</html>

@@ -1,0 +1,109 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<!--подключаем-->
+<head>
+    <meta charset="UTF-8">
+    <!--css-->
+    <link type="text/css" href="{% static 'app1/css/style.css' %}" rel="stylesheet"/>
+    <!--шрифт-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icon Library -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>Фрилансеры</title>
+</head>
+<body>
+<header class="header">
+    <div class="header_inner">
+        <div class="logo">EASYJOB</div>
+        <!--Ссылки-->
+        <nav class="nav">
+            <a class="nav_link" href="{% url 'index' %}">О сервисе</a>
+            <a class="nav_link" href="{% url 'vakancii' %}">Вакансии</a>
+            <a class="nav_link active" href="#">Фрилансеры</a>
+            <a class="nav_link" href="{% url 'contact' %}">Контакты</a>
+            <a class="nav_link" href="{% url 'registr' %}">Регистрация</a>
+            <a class="nav_link" href="#">Вход</a>
+        </nav>
+    </div>
+</header>
+<div class="container">
+    <div class="section_header">кнопки</div>
+    <div class="section_header">кнопки</div>
+    <!--кнопки-->
+    <div class="knopki">
+        <div class="knopki_right">
+            <div class="dropdown">
+                <button class="btn_down">Выберите сферу</button>
+            </div>
+            <div class="dropdown">
+                <!--стрелка-->
+                <button class="btn_down" style="border-left:2px solid #d7886d">
+                    <i class="fa fa-caret-down"></i>
+                </button>
+                <div class="dropdown-content">
+                    {% for el in bd_spheres %}
+                    <a href="#">{{ el.name_sphere }}</a>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div class="knopki_right"><a class="btn" href="{% url 'addresume' %}">Добавить предложение</a></div>
+    </div>
+</div>
+
+</div>
+<div class="container">
+    <div class="ttable">
+        <div class="section_text">
+            <table border="1">
+                <tr>
+                    <td>
+                        <div class="t_shapka">Фамилия</div>
+                    </td>
+                    <td>
+                        <div class="t_shapka">Имя</div>
+                    </td>
+                    <td>
+                        <div class="t_shapka">Возраст</div>
+                    </td>
+                    <td>
+                        <div class="t_shapka">Опыт работы</div>
+                    </td>
+                    <td>
+                        <div class="t_shapka">Резюме</div>
+                    </td>
+                </tr>
+                {% for el in bd_freelancer %}
+                {% for em in bd_user %}
+                {% if em.id == el.user_id.id %}
+                <tr>
+                    <td>
+                        <div class="t_item">{{ em.username }}</div>
+                    </td>
+                    <td>
+                        <div class="t_item">{{ em.last_name }}</div>
+                    </td>
+                    <td>
+                        <div class="t_item">{{ el.age }}</div>
+                    </td>
+                    <td>
+                        <div class="t_item">{{ el.experience }}</div>
+                    </td>
+                    <td>
+                        <div class="t_item">{{ el.about_freelancer }}</div>
+                    </td>
+                </tr>
+                {% endif %}
+                {% endfor %}
+                {% endfor %}
+            </table>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

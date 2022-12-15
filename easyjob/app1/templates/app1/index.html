@@ -1,0 +1,143 @@
+{% load static %}
+<!DOCTYPE html>
+<!---->
+<!--язык-->
+<html lang="en">
+    <!--подключаем-->
+    <head>
+        <meta charset="UTF-8">
+        <!--css-->
+        <!--<link rel="stylesheet" href="app1/css/style.css">-->
+        <link type="text/css" href="{% static 'app1/css/style.css' %}" rel="stylesheet" />
+        <!--шрифт-->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Kanit&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@1,300&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,600;1,300&display=swap" rel="stylesheet">
+        <title>О сервисе</title>
+        <!--иконка у тайтла-->
+        <link rel="shortcut icon" href="{% static 'app1/images/icon1' %}" type="image/x-icon"/>
+    </head>
+
+    <body>
+        <header class="header">
+            <div class="header_inner">
+                <svg width="45" height="45" viewBox="0 0 612 612" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <g clip-path="url(#clip0_1_2)">
+                    <path d="M599.751 276.341L489.037 165.537C481.113 157.613 470.586 153.249 459.387 153.249C448.208 153.249 437.688 157.601 429.76 165.51C413.426 181.84 413.418 208.442 429.752 224.806L510.835 305.971L429.756 387.08C421.828 395.012 417.469 405.555 417.477 416.768C417.484 427.959 421.847 438.475 429.76 446.362C437.68 454.282 448.204 458.641 459.399 458.641C470.601 458.641 481.128 454.282 489.038 446.362L599.752 335.61C616.085 319.269 616.085 292.679 599.751 276.341ZM589.092 324.962L478.378 435.714C473.31 440.786 466.569 443.579 459.399 443.579C452.229 443.579 445.488 440.786 440.413 435.706C435.345 430.653 432.557 423.929 432.549 416.761C432.541 409.583 435.337 402.827 440.416 397.745L526.815 311.307C529.758 308.364 529.758 303.594 526.819 300.655L440.42 214.165C429.957 203.679 429.953 186.633 440.409 176.181C445.488 171.117 452.229 168.328 459.388 168.328C466.558 168.328 473.303 171.124 478.378 176.199L589.092 287.004C599.552 297.465 599.552 314.492 589.092 324.962Z" fill="#D7886D"/>
+                    <path d="M194.525 416.773C194.532 405.564 190.177 395.025 182.245 387.085L101.17 305.976L182.26 224.803C198.583 208.439 198.572 181.841 182.226 165.499C174.306 157.602 163.789 153.253 152.614 153.253C141.416 153.253 130.884 157.616 122.96 165.541L12.25 276.334C-4.084 292.679 -4.084 319.273 12.254 335.615L122.957 446.355C130.874 454.283 141.405 458.646 152.603 458.646C163.801 458.646 174.325 454.291 182.223 446.382C190.147 438.484 194.518 427.968 194.525 416.773ZM171.571 435.718C166.511 440.786 159.774 443.575 152.603 443.575C145.432 443.575 138.688 440.782 133.616 435.704L22.914 324.962C12.45 314.495 12.45 297.461 22.914 286.993L133.62 176.196C138.699 171.121 145.444 168.325 152.614 168.325C159.773 168.325 166.51 171.11 171.578 176.162C182.045 186.625 182.049 203.672 171.593 214.154L85.186 300.648C82.247 303.587 82.247 308.356 85.19 311.3L171.589 397.734C176.668 402.82 179.464 409.576 179.456 416.755C179.446 423.925 176.654 430.654 171.571 435.718Z" fill="#D7886D"/>
+                    <path d="M410.932 23.764C406.206 22.004 401.275 21.111 396.267 21.111C378.832 21.111 363.064 32.098 357.023 48.444L176.428 534.334C172.51 544.836 172.92 556.234 177.593 566.438C182.261 576.629 190.607 584.377 201.075 588.239C205.8 589.999 210.728 590.891 215.721 590.891C233.137 590.891 248.928 579.909 255.025 563.555L435.642 77.608C443.652 55.919 432.56 31.763 410.932 23.764ZM421.504 72.37L240.897 558.294C236.99 568.773 226.873 575.815 215.72 575.815C212.529 575.815 209.371 575.241 206.319 574.104C199.62 571.627 194.284 566.672 191.297 560.155C188.305 553.626 188.041 546.327 190.558 539.593L371.156 53.681C375.022 43.214 385.113 36.182 396.266 36.182C399.472 36.182 402.629 36.755 405.682 37.893C419.537 43.014 426.636 58.489 421.504 72.37Z" fill="#D7886D"/>
+                    </g>
+                    <defs>
+                    <clipPath id="clip0_1_2">
+                    <rect width="612.001" height="612.001" fill="white"/>
+                    </clipPath>
+                    </defs>
+                    </svg>
+                    
+                <div class="logo">EASYJOB</div>
+                <!--Ссылки-->
+                <nav class="nav">
+                    <a class="nav_link active" href="#">О сервисе</a>
+                    <a class="nav_link" href="{% url 'vakancii' %}">Вакансии</a>
+                    <a class="nav_link" href="{% url 'freelancer' %}">Фрилансеры</a>
+                    <a class="nav_link" href="{% url 'contact' %}">Контакты</a>
+                    <a class="nav_link" href="{% url 'registr' %}">Регистрация</a>
+                    <a class="nav_link" href="#">Вход</a>
+                </nav>
+            </div>
+        </header>
+
+        <div class="intro">
+            <div class="container">
+                <div class="intro_inner">
+                    <div>
+                        <h2 class="intro_suptitle">Это проще, чем ты думаешь</h2>
+                        <h1 class="intro_title">Добро пожаловать на EasyJob</h1>
+                    </div>
+                    <div><a class="btn" href="{% url 'registr' %}">Зарегистрироваться</a></div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="slider">
+                <div class="slider_item">
+                    <span class="slider_num">Заказчик</span>
+                    размещает свой заказ за минуту
+                </div>
+                <div class="slider_item">
+                    <span class="slider_num">Фрилансеры</span>
+                    предлагают услуги, цены и сроки
+                </div>
+                <div class="slider_item">
+                    <span class="slider_num">Заказчик</span>
+                    выбирает подходящего исполнителя
+                </div>
+                <div class="slider_item">
+                    <span class="slider_num">Исполнитель</span>
+                    выполняет работу и получает оплату
+                </div>
+            </div>
+        </div>
+    <section class="section">
+        <div class="container">
+            <div class="section_header">
+                <h3 class="section_title">Наша идея:</h3>
+                <div class="section_text">
+                    <p>Ценник за работу относительно минимальный, поэтому:</p>
+                    <p> - Новички смогут взяться за работу, не боясь ответсвенности при высоком ценнике</p>
+                    <p> - Работодатели оценят преимущества фрилансеров над стационарными работниками</p>
+                    <p> А опытные специалисты могут ставить свою цену</p>
+                </div>
+            </div>
+            <div class="about">
+
+                <div class="about_image">
+                   
+                        <!--<image src="app1/css/about1.jpg" alt="">-->
+                   
+                </div>
+
+                <div class="about_image">
+                    
+                        <!--<image src="assets/images/about2.jpg" alt="">-->
+                
+                </div>
+                                
+                <div class="about_image">
+                
+                    <!--<image src="assets/images/about3.jpg" alt="">-->
+                
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="statistics">
+        <div class="container">
+        <div class="stat">
+            <div class="stat_item">
+                <div class="stat_count">5</div>
+                <div class="stat_text">лет на рынке</div>
+            </div>
+            <div class="stat_item">
+                <div class="stat_count">42</div>
+                <div class="stat_text">кампании</div>
+            </div>
+            <div class="stat_item">
+                <div class="stat_count">>150</div>
+                <div class="stat_text">Фрилансеров</div>
+            </div>
+            <div class="stat_item">
+                <div class="stat_count">>1000</div>
+                <div class="stat_text">вакансий</div>
+            </div>
+            <div class="stat_item">
+                <div class="stat_count">3</div>
+                <div class="stat_text">сферы</div>
+            </div>
+        </div>
+        </div>
+    </div>
+    </body>
+</html>

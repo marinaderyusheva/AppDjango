@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{title}}</title>
+    <link type="text/css" href="{% static 'app1/css/style.css' %}" rel="stylesheet" />
+</head>
+<body>
+<table class="table-page" border="0" cellpadding="0" cellspacing="0">
+    <tr><td valign=top>
+{% block mainmenu %}
+<div class = "header">
+    <ul id="mainmenu" class="mainmenu">
+        <li class="logo"><a href="#"><div class="logo"></div></a></li>
+        {% for m in menu %}
+        {% if not forloop. last %}
+        <li><a href="#">{{m.title}}</a></li>
+        {% else %}
+        <li class="last"><a href="#">{{m.title}}</a></li>
+        {% endif %}
+        {% endfor %}
+    </ul>
+    <div class="clear"></div>
+</div>
+{% endblock mainmenu %}
+        <table class="table-content" border="0" cellpadding="0" cellspacing="0">
+    <tr>
+        <td valign=top class="left-chapters">
+            <ul id="leftchapters">
+                <li class="selected">О сервисе</li>
+                <li><a href="#">Вакансии</a></li>
+                <li><a href="#">Фрилансеры</a></li>
+                <li><a href="#">Контакты</a></li>
+                <li><a href="#">Войти/Регистрация</a></li>
+            </ul>
+        </td>
+{% block content %}
+
+{% endblock %}
+</body>
+</html>
